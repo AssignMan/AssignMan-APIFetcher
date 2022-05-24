@@ -13,13 +13,14 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
 public class Timetable {
+    public static final String BLUE_BOLD_BRIGHT = "\033[1;94m";
+    public static final String RESET = "\033[0m";
     public static void main(String[] args) {
+        DayOfWeek dayOfWeek = LocalDate.now().getDayOfWeek();
         for (int i = 0; i < 7; i++) {
-            LocalDate date = LocalDate.now().plusDays(i);
+            LocalDate date = LocalDate.now().plusDays(i-1);
             try {
                 Session session = Session.login("0154", "projectazure", "https://urania.webuntis.com", "htl3r");  // create a new webuntis session
-
-
                 // get the timetable and print every lesson
                 org.bytedream.untis4j.responseObjects.Timetable timetable1 = session.getTimetableFromClassId(date, date, session.getInfos().getClassId());
                 for (int j = 0; j < timetable1.size(); j++) {
@@ -29,10 +30,9 @@ public class Timetable {
                 session.logout();
             } catch (Exception e) {
                 // if an error appears this get thrown
-                e.printStackTrace();
+                System.out.println(BLUE_BOLD_BRIGHT + "Webuntis error with day: " + date + RESET);
             }
         }
-        DayOfWeek dayOfWeek = LocalDate.now().getDayOfWeek();
-        System.out.println("Day of the Week :: " + dayOfWeek);
+        System.out.println(BLUE_BOLD_BRIGHT + "Day of the Week :: " + dayOfWeek + RESET);
     }
 }
