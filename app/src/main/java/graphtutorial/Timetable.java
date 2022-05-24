@@ -24,7 +24,7 @@ public class Timetable {
                 // get the timetable and print every lesson
                 org.bytedream.untis4j.responseObjects.Timetable timetable1 = session.getTimetableFromClassId(date, date, session.getInfos().getClassId());
                 for (int j = 0; j < timetable1.size(); j++) {
-                    System.out.println("Lesson " + (j + 1) + ": " + timetable1.get(j).getSubjects().toString());
+                    System.out.println("Lesson " + (j + 1) + ": " + timetable1.get(j).getSubjects().toString()+" startet um: " + timetable1.get(j).getStartTime().toString() + " endet um: " + timetable1.get(j).getEndTime().toString());
                 }
                 // logout
                 session.logout();
@@ -35,4 +35,5 @@ public class Timetable {
         }
         System.out.println(BLUE_BOLD_BRIGHT + "Day of the Week :: " + dayOfWeek + RESET);
     }
+
 }
