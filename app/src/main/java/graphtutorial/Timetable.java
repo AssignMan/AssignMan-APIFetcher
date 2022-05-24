@@ -25,10 +25,9 @@ public class Timetable {
                 for (int j = 0; j < timetable1.size(); j++) {
                     System.out.println("Lesson " + (j + 1) + ": " + timetable1.get(j).getSubjects().toString());
                 }
-
                 // logout
                 session.logout();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 // if an error appears this get thrown
                 e.printStackTrace();
             }
