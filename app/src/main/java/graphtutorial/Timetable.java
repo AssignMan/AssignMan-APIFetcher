@@ -18,7 +18,7 @@ public class Timetable {
     public static void main(String[] args) {
         DayOfWeek dayOfWeek = LocalDate.now().getDayOfWeek();
         for (int i = 0; i < 7; i++) {
-            LocalDate date = LocalDate.now().plusDays(i-1);
+            LocalDate date = LocalDate.now().plusDays(i);
             try {
                 Session session = Session.login("0154", "projectazure", "https://urania.webuntis.com", "htl3r");  // create a new webuntis session
                 // get the timetable and print every lesson
