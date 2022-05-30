@@ -9,11 +9,11 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.Calendar;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class Timetable {
     public static void main(String[] args) {
-        org.bytedream.untis4j.responseObjects.Timetable[] timetables = new org.bytedream.untis4j.responseObjects.Timetable[7];
-
         for (int i = 0; i < 7; i++) {
             LocalDate date = LocalDate.now().plusDays(i);
             try {
@@ -33,5 +33,7 @@ public class Timetable {
                 e.printStackTrace();
             }
         }
+        DayOfWeek dayOfWeek = LocalDate.now().getDayOfWeek();
+        System.out.println("Day of the Week :: " + dayOfWeek);
     }
 }
