@@ -1,30 +1,37 @@
+
 package graphtutorial;
 
 import org.bytedream.untis4j.Session;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.Calendar;
 
 public class Timetable {
     public static void main(String[] args) {
-        try {
-            Session session = Session.login("0154", "projectazure", "https://urania.webuntis.com/WebUntis/?school=htl3r#/basic/main", "htl3r");  // create a new webuntis session
+        org.bytedream.untis4j.responseObjects.Timetable[] timetables = new org.bytedream.untis4j.responseObjects.Timetable[7];
 
-            // get the timetable and print every lesson
-            Timetable timetable1 = session.getTimetableFromClassId(LocalDate.now(), LocalDate.now(), session.getInfos().getClassId());
-            for (int i = 0; i < timetable1.size(); i++) {
-                System.out.println("Lesson " + (i + 1) + ": " + timetable1.get(i).getSubjects().toString());
+        for (int i = 0; i < 7; i++) {
+            LocalDate date = LocalDate.now().plusDays(i);
+            try {
+                Session session = Session.login("0154", "projectazure", "https://urania.webuntis.com", "htl3r");  // create a new webuntis session
+
+
+                // get the timetable and print every lesson
+                org.bytedream.untis4j.responseObjects.Timetable timetable1 = session.getTimetableFromClassId(date, date, session.getInfos().getClassId());
+                for (int j = 0; j < timetable1.size(); j++) {
+                    System.out.println("Lesson " + (j + 1) + ": " + timetable1.get(j).getSubjects().toString());
+                }
+
+                // logout
+                session.logout();
+            } catch (IOException e) {
+                // if an error appears this get thrown
+                e.printStackTrace();
             }
-
-            // logout
-            session.logout();
-        } catch (LoginException e) {
-            // this exception get thrown if something went wrong with Session.login
-            System.out.println("Failed to login: " + e.getMessage());
-        } catch (IOException e) {
-            // if an error appears this get thrown
-            e.printStackTrace();
         }
     }
 }
