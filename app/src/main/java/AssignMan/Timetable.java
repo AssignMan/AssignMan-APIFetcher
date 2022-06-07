@@ -1,16 +1,9 @@
-
 package graphtutorial;
 
 import org.bytedream.untis4j.Session;
 
-import javax.security.auth.login.LoginException;
-import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.TextStyle;
-import java.util.Calendar;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
 
 public class Timetable {
     public static final String BLUE_BOLD_BRIGHT = "\033[1;94m";
