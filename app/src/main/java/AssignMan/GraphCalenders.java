@@ -1,4 +1,4 @@
-package graphtutorial;
+package AssignMan;
 
 import com.microsoft.graph.models.Event;
 import com.microsoft.graph.models.User;
@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
 
-import static graphtutorial.GraphAuth.graphClient;
+import static AssignMan.GraphAuth.graphClient;
 
 public class GraphCalenders {
     public static User getUser() {
@@ -49,7 +49,7 @@ public class GraphCalenders {
                 .calendarView()
                 .buildRequest(options)
                 .select("subject,organizer,start,end")
-                .top(25)
+                .top(10)
                 .get();
 
         List<Event> allEvents = new LinkedList<Event>();

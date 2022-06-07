@@ -1,4 +1,4 @@
-package graphtutorial;
+package AssignMan;
 
 import java.net.URL;
 import java.util.List;
@@ -16,7 +16,7 @@ import com.microsoft.graph.requests.GraphServiceClient;
 public class GraphAuth {
 
     static GraphServiceClient<Request> graphClient = null;
-    private static TokenCredentialAuthProvider authProvider = null;
+    static TokenCredentialAuthProvider authProvider = null;
 
     public static void initializeGraphAuth(String applicationId, List<String> scopes) {
         // Create the auth provider

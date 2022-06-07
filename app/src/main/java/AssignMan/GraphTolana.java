@@ -1,4 +1,4 @@
-package graphtutorial;
+package AssignMan;
 
 import com.microsoft.graph.models.DateTimeTimeZone;
 import com.microsoft.graph.models.Event;

@@ -1,4 +1,4 @@
-package graphtutorial;
+package AssignMan;
 
 import org.bytedream.untis4j.Session;
 

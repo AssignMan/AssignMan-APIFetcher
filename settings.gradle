@@ -11,5 +11,5 @@ sourceControl {
         producesModule("org.bytedream:untis4j")
     }
 }
-rootProject.name = 'ProjectAzure'
+rootProject.name = 'AssignMan'
 include('app')
