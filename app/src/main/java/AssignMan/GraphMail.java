@@ -17,13 +17,13 @@ public class GraphMail {
         GraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
         MessageCollectionPage messages = graphClient.me().messages()
                 .buildRequest()
-                .select("sender,subject")
+                .select("sender,subject,bodyPreview")
                 .get();
         List<Message> allMessages = new LinkedList<>();
         allMessages.addAll(messages.getCurrentPage());
         for (Message message : allMessages) {
             assert message.sender != null;
-            System.out.println(message.toString());
+            System.out.println(message.bodyPreview);
         }
     }
 }
