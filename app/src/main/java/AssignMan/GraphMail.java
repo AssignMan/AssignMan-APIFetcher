@@ -5,6 +5,7 @@ import com.microsoft.graph.requests.GraphServiceClient;
 import com.microsoft.graph.requests.MessageCollectionPage;
 import okhttp3.Request;
 
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +23,7 @@ public class GraphMail {
         assert messages != null;
         List<Message> allMessages = new LinkedList<>(messages.getCurrentPage());
         for (Message message : allMessages) {
-            assert message.sender != null;
+            assert message.bodyPreview != null;
             System.out.println(message.bodyPreview);
         }
     }
