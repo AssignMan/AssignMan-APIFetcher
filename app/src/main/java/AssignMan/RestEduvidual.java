@@ -9,9 +9,9 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
+import com.google.gson.*;
 
 public class RestEduvidual {
-
     /**
      * Do a REST call to Moodle. Result are displayed in the console log.
      * @param args the command line arguments

@@ -11,10 +11,10 @@ import java.util.List;
 import static AssignMan.GraphTeams.getTeamsMessages;
 import static AssignMan.GraphTolana.listCalendarEvents;
 import static AssignMan.GraphMail.getMails;
+import static AssignMan.Timetable.getTimetable;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Java Graph Tutorial");
         System.out.println();
 
         // Load OAuth settings
@@ -51,6 +51,7 @@ public class App {
             System.out.println("2. View this week's calendar");
             System.out.println("3. Get Mails");
             System.out.println("4. Get Teams");
+            System.out.println("5. Get Timetable");
 
             try {
                 choice = input.nextInt();
@@ -67,6 +68,7 @@ public class App {
                 case 2 -> listCalendarEvents(user.mailboxSettings.timeZone);
                 case 3 -> getMails();
                 case 4 -> getTeamsMessages();
+                case 5 -> getTimetable();
                 default -> System.out.println("Invalid choice");
             }
         }

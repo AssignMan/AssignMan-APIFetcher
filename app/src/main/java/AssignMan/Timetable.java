@@ -4,11 +4,12 @@ import org.bytedream.untis4j.Session;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Timetable {
     public static final String BLUE_BOLD_BRIGHT = "\033[1;94m";
     public static final String RESET = "\033[0m";
-    public static void main(String[] args) {
+    public static void getTimetable() {
         DayOfWeek dayOfWeek = LocalDate.now().getDayOfWeek();
         for (int i = 0; i < 7; i++) {
             LocalDate date = LocalDate.now().plusDays(i);
